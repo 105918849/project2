@@ -1,0 +1,78 @@
+html {
+    background-image: url(../images/background.jpg); /* Image sourced from shutterstock.com */
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-size: cover; /* Scales image to fill the page without distortion */
+    background-position: center; /* Centers the image within the element */
+    background-attachment: fixed; /* Keeps background fixed during scroll */
+}
+
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    margin: 50px;
+}
+
+header {
+    font-size: clamp(1em, 2vw, 2vw);
+    text-align: center;
+    background-color: rgb(255, 243, 198);
+    border-radius: 15px; /* Curves the edges of the header */
+}
+
+header h1 {
+    color: rgb(255, 176, 40);
+    text-align: center;
+    padding: 0.5em;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none; /* Removes underline */
+    background-color: rgb(207, 232, 255);
+    display: flex;
+    padding: 1em;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: -20px;
+    color: rgb(110, 159, 202);
+    font-weight: bold;
+}
+
+nav a:hover{
+    background-color: rgb(158, 176, 194);
+	color: rgb(67, 109, 145);
+}
+
+.CurrentPage {
+	background-color: rgb(110, 159, 202);
+	color: rgb(207, 232, 255);
+}
+
+.CurrentPage:hover {
+    background-color: rgb(67, 109, 145);
+	color: rgb(158, 176, 194);
+}
+
+#Page {
+    display: flex; /* Makes the page container a flexbox */
+    padding: 1em;
+    background-color: rgb(255, 243, 198);
+    align-items: center;
+    text-align: center;
+    border-radius: 15px; /* Curves the edges of the page */
+}
+
+#Details {
+    display: flex; /* Makes the page container a flexbox */
+    padding: 1em;
+    background-color: rgb(255, 243, 198);
+    align-items: right;
+    text-align: space-between;
+    border-radius: 15px; /* Curves the edges of the page */
+}
