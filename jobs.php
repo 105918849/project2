@@ -39,8 +39,7 @@
         .job { 
             font-size: 18px;
             width: 35%;
-            margin: 5em;
-            padding: 5em;
+            margin: 2em;
             border: 10px groove rgb(0, 0, 0);
             background-color: rgb(255, 243, 198);
             flex-direction: column;
