@@ -5,124 +5,109 @@
   <meta name="description" content="jobs" />
   <meta name="keywords" content="job, describe, job description,  job position" />
   <meta name="author" content="Tanadol Baibong"  />
-  <title>JOBS</title>
+  <title>Jobs</title>
     
   <link rel="stylesheet" href="styles/styles.css">
     <style>
+        .look { 
+            color: rgb(0, 0, 0);
+            text-align: center;  
+            text-decoration: underline;
+            background-color: aliceblue;
+            border: 10px solid aliceblue;
+            border-radius: 15px;
+        }
 
-    nav { text-align: center; }
-    nav a { 
-        text-decoration: none;
-        font-weight: bold;
-    }
+        .images {  
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 50px;
+            flex-wrap: wrap;
+        }
 
-    .page {
-    display: inline-block;
-    }
+        .skills {
+            font-weight: bold;
+            text-decoration-line: underline;
+        }
 
-    .look { 
-        color: rgb(0, 0, 0);
-        text-align: center;  
-        text-decoration: underline;
-        background-color: aliceblue;
-        border: 10px dashed rgb(0, 0, 0);
-    }
+        #container {
+            display: flex;
+            justify-content: space-evenly;
+        }
 
-    .images {  
-        margin: 50px;
-    }
+        .job { 
+            font-size: 18px;
+            width: 35%;
+            margin: 5em;
+            padding: 5em;
+            border: 10px groove rgb(0, 0, 0);
+            background-color: rgb(255, 243, 198);
+            flex-direction: column;
+        }
 
-    .skills {
-        font-weight: bold;
-        text-decoration-line: underline;
-    }
+        #architect {
+            border: 2px solid black;
+            border-radius: 15px;
+            background-color: white;
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 100px;
+        }
 
-    #job1 { 
-        font-size: 18px;
-        float: left;
-        width: 25%;
-        margin: 5em;
-        padding: 5em;
-        border: 10px groove rgb(0, 0, 0);
-        background-color: rgb(255, 243, 198);
-    }
+        #manager {
+            border: 2px solid black;
+            border-radius: 15px;
+            background-color: white;
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 115px;
+            
+        }
 
-    #architect {
-        border: 2px solid black;
-        border-radius: 15px;
-        background-color: white;
-        font-size: 35px;
-        text-align: center;
-        margin-bottom: 100px;
-    }
+        .response {
+            font-weight: bold;
+            text-decoration: underline;
+        }
 
-    #job2 { 
-        font-size: 18px;
-        float: left;
-        width: 25%;
-        margin: 5em;
-        padding: 5em;
-        border: 10px groove rgb(0, 0, 0);
-        background-color: rgb(255, 243, 198);
+        .buttons {
+            color: black;
+            text-decoration:solid;
+            text-align: center;
+            background-color: rgb(255, 248, 248);
+            border: 3px solid black;
+            font-size: 20px;
+            padding: 0.5em;
+            cursor: pointer;
+        }
 
-    }
+        .buttons:hover {
+            background-color: rgb(199, 239, 214);
+        }
 
-    #manager {
-        border: 2px solid black;
-        border-radius: 15px;
-        background-color: white;
-        font-size: 35px;
-        text-align: center;
-        margin-bottom: 115px;
-        
-    }
-
-    .response {
-        font-weight: bold;
-        text-decoration: underline;
-    }
-
-    .buttons {
-        color: black;
-        text-decoration:solid;
-        text-align: center;
-        background-color: rgb(255, 248, 248);
-        border: 3px solid black;
-        font-size: 20px;
-        padding: 0.5em;
-        cursor: pointer;
-        margin-top:100px;
-        margin-left: 100px;
-    }
-
-    button a {
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-    }
-
-    .buttons:hover {
-        background-color: rgb(199, 239, 214);
-    }
-  </style>
+        aside a {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            align-content: normal;
+            padding: 5em;
+            border-radius: 15px;
+            margin: 40px;
+        }
+    </style>
 
  </head>
 
  <body>
 
  <header id="jobhead"> 
-    <h1 style="color: rgb(255, 176, 40);">JOB OPPORTUNITIES </h1>
+    <h1 style="color: rgb(255, 176, 40);">Job opportunities</h1>
  </header>
 
 
-  <nav>
-     <aside>
-        <p class="page"><a href="index.php">HOME</a></p> 
-		<p class="page"><a href="jobs.php">AVALIABLE JOBS</a> </p> 
-        <p class="page"><a href="apply.php">APPLY NOW</a> </p> 
-		<p class="page"><a href="about.php">ABOUT US</a></p> 
-        </aside>
-  </nav>
+ <?php include 'nav.inc'; ?>
 
   
  <section class="look">
@@ -131,8 +116,8 @@
     <em>Take your opportunity to apply now!</em>
  </h2>
  </section>
-
- <section id="job1">
+ <div id="container">
+ <aside id="Page" class="job">
 <h1 id="architect">
     <strong>Smart Grid Architecture</strong>
 </h1>
@@ -166,10 +151,10 @@
     <li><strong>Preferable:</strong> Experience with IEEE 2030.5 standards; BESS (Battery Energy Storage) experience.</li>
 </ol>
  <a href="apply.html" class="buttons">Click here to apply</a>
-</section>
+</aside>
 
 
-<aside id="job2">
+<aside id="Page" class="job">
     <h1 id="manager">
     <strong>Project Manager</strong>
 </h1>
@@ -203,7 +188,8 @@
 <!-- This job generated by Gemini 3.1 Pro -->
  <a href="apply.html" class="buttons">Click here to apply</a>
  </aside>
-
+</div>
+ <?php include 'footer.inc'; ?>
 </body>
 
 

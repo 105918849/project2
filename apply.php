@@ -30,12 +30,7 @@
         <header>
             <h1>Application page</h1>
         </header>
-        <nav>
-            <a href="index.php">HOME</a>
-            <a href="jobs.php">AVALIABLE JOBS</a>
-            <a href="apply.php" class="CurrentPage">APPLY NOW</a> 
-            <a href="about.php">ABOUT US</a>
-        </nav>
+        <?php include 'nav.inc'; ?>
         <div id="Page" style="justify-self: center; width: clamp(450px, 60vw, 800px);">
             <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
                 <div>
@@ -164,5 +159,6 @@
                 <input type="reset" value="Reset Form">
             </form>
         </div>
+        <?php include 'footer.inc'; ?>
     </body>
 </html>

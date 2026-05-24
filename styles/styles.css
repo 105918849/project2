@@ -1,5 +1,5 @@
 html {
-    background-image: url(../images/background.jpg); /* Image sourced from shutterstock.com */
+    background-image: url(images/background.jpg); /* Image sourced from shutterstock.com */
     background-repeat: no-repeat; /* Prevents the image from tiling */
     background-size: cover; /* Scales image to fill the page without distortion */
     background-position: center; /* Centers the image within the element */
@@ -49,30 +49,44 @@ nav a:hover{
 	color: rgb(67, 109, 145);
 }
 
-.CurrentPage {
-	background-color: rgb(110, 159, 202);
-	color: rgb(207, 232, 255);
-}
-
-.CurrentPage:hover {
-    background-color: rgb(67, 109, 145);
-	color: rgb(158, 176, 194);
-}
-
 #Page {
     display: flex; /* Makes the page container a flexbox */
     padding: 1em;
     background-color: rgb(255, 243, 198);
     align-items: center;
-    text-align: center;
     border-radius: 15px; /* Curves the edges of the page */
 }
 
-#Details {
-    display: flex; /* Makes the page container a flexbox */
-    padding: 1em;
-    background-color: rgb(255, 243, 198);
-    align-items: right;
-    text-align: space-between;
-    border-radius: 15px; /* Curves the edges of the page */
+footer {
+    display: flex; /* Makes the footer container a flexbox */
+    height: 40px;
+    background-color: black;
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px; /* Curves the edges of the footer */
+    margin-top: 20px;
+}
+
+footer ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+footer li {
+    display: inline; /* Display list items in a horizontal line */
+    margin-left: 10px; /* Add some spacing between items */
+    margin-right: 10px;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+footer a:hover {
+    background-color: #aeaeae;
+    color: #383838;
 }

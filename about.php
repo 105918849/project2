@@ -18,31 +18,30 @@
                 align-content: normal;
             }
 
-            #Details {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: space-between;
-                align-content: normal;
-            }
-
             fieldset {
                 border-color: rgb(255, 176, 40);
+            }
+
+            img {
+                max-width: 70%;
+                height: auto;
+            }
+
+            figure {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
         </style>
 </head> 
 <body>
-       <header>
-            <h1>Who are we?</h1>
-        </header>
-        <nav>
-            <a href="index.php">HOME</a>
-            <a href="jobs.php">AVALIABLE JOBS</a>
-            <a href="apply.php" class="CurrentPage">APPLY NOW</a>
-            <a href="about.php">ABOUT US</a>
-        </nav>
+    <header>
+        <h1>Who are we?</h1>
+    </header>
+    <?php include 'nav.inc'; ?>
     <section>
-        <div id="Details" style="flex-flow: column;">
+        <div id="Page" style="flex-flow: column;">
         <h2>About us</h2>
             <p>
                 At Horizron Industries, we strive to be the gold standard for Smart City Infrastructure, offering consulting services with various specialties in software development, tech solutions and digital platforms in:
@@ -73,7 +72,7 @@
     <div style="height: 40px;"></div>
 
     <section>
-        <div id="Details" style="flex-flow: column;">
+        <div id="Page" style="flex-flow: column;">
         <h2>More about us</h2>
             <h4>Positions and personal quotes:</h4>
                 <dl>
@@ -97,7 +96,7 @@
 <div style="height: 40px;"></div>
 
     <section>
-        <div id="Details" style="flex-flow: column;">
+        <div id="Page" style="flex-flow: column;">
         <h2>Contacts and Availability</h2>
             <p>You can find us in Swinburne University's Hawthorn Campus in the Business Arts building in room BA603, or, you may send us a direct inquiry via our email</p>
             <ul>
@@ -118,7 +117,7 @@
 <div style="height: 40px;"></div>
 
     <section>
-        <div id="Details" style="flex-flow: column;">
+        <div id="Page" style="flex-flow: column;">
         <h1>Fun facts!</h1>
                 <li>Daniel:
                     <ul>
@@ -168,5 +167,6 @@
                     </aside>
             </div>
     </section>
+    <?php include 'footer.inc'; ?>
 </body>
 </html>
