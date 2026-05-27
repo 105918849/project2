@@ -72,7 +72,6 @@ footer ul {
     list-style-type: none; /* Remove bullet points */
     padding: 0;
     margin: 0;
-    overflow: hidden;
 }
 
 footer li {

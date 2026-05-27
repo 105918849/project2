@@ -210,7 +210,7 @@
                     </div>
                     <div>
                         <label for="OtherSkills">Other Skills<br></label>
-                        <textarea style="border-radius: 5px;" id="OtherSkills" name="OtherSkills" rows="5" cols="40"></textarea>
+                        <textarea style="border-radius: 5px;" id="OtherSkills" name="OtherSkills" rows="5" cols="34"></textarea>
                     </div>
                 </fieldset>
                 <input class="button" type="submit" value="Apply">
