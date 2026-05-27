@@ -83,32 +83,32 @@
             <h1>Application page</h1>
         </header>
         <?php include 'nav.inc'; ?> <!-- Navagation menu that links to the other pages and darkens when you hover over them -->
-        <div id="Page" style="align-self: center; width: clamp(450px, 60vw, 800px);">
-            <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+        <div id="Page" style="align-self: center; width: clamp(450px, 60vw, 800px);"> <!-- The clamp function allows you to set a minimum, preferred and maximum size, scaling between these values but never going past them. I wanted the form to take up roughly 60% of the screen so it looks like a physical application form while not ending up squishing to an extreme size when viewed on smaller screens, so I set a minimum limit that it will not get smaller than so as to keep it usable and legible -->
+            <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php"> <!-- -->
                 <div>
                     <label for="JRN">Job reference number</label> 
-                    <input type="text" name="JRN" id="JRN" pattern="^[0-9a-zA-Z]{5}$" required="required"> <!--  -->
+                    <input type="text" name="JRN" id="JRN" pattern="^[0-9a-zA-Z]{5}$" required="required"> <!-- Pattern only allows 5 Alphanumeric digits -->
                 </div>
                 <fieldset>
                     <legend>Your name</legend>
                     <div>
                         <label for="Fname">First name</label> 
-                        <input type="text" name="Fname" id="Fname" pattern="^[a-zA-Z]{1,20}$" required="required">
+                        <input type="text" name="Fname" id="Fname" pattern="^[a-zA-Z]{1,20}$" required="required"> <!-- Pattern only accepts an input of Alphabet characters between the amount of 1 and 20 -->
                     </div>
                     <div>
                         <label for="Lname">Last name</label>
-                        <input type="text" name="Lname" id="Lname" pattern="^[a-zA-Z]{1,20}$" required="required">
+                        <input type="text" name="Lname" id="Lname" pattern="^[a-zA-Z]{1,20}$" required="required"> <!-- Pattern only accepts an input of Alphabet characters between the amount of 1 and 20 -->
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Other information</legend>
                     <div>
                         <label for="DOB">Date of birth</label> 
-                        <input type="text" name="DOB" id="DOB" placeholder="dd/mm/yyyy" pattern="^([012]?[0-9]|3[0-1])/(0?[1-9]|1[0-2])/[0-9][0-9][0-9][0-9]$" required="required">
+                        <input type="text" name="DOB" id="DOB" placeholder="dd/mm/yyyy" pattern="^([012]?[0-9]|3[0-1])/(0?[1-9]|1[0-2])/[0-9][0-9][0-9][0-9]$" required="required"> <!-- Pattern only allows 1 to 31 in the days category, 1 to 12 in the months category, and any four digit number from 0000 to 9999 in the years category -->
                         <fieldset>
                             <legend>Gender</legend>
                                 <div class="align">
-                                    <input type="radio" name="Gender" id="Male" value="Male" required="required">
+                                    <input type="radio" name="Gender" id="Male" value="Male" required="required"> <!-- Must select one -->
                                     <label class="radio" for="Male">Male</label> 
                                 </div>
                                 <div class="align">
@@ -126,15 +126,15 @@
                     <legend>Address</legend>
                     <div>	
                         <label for="Address">Street Address</label> 
-                        <input type="text" name="Address" id="Address" pattern="^.{1,40}$" required="required">
+                        <input type="text" name="Address" id="Address" pattern="^.{1,40}$" required="required"> <!-- Pattern takes any input as long as it is between 1 and 40 characters long -->
                     </div>
                     <div>
                         <label for="Town">Suburb/Town</label>
-                        <input type="text" name="Town" id="Town" pattern="^.{1,40}$" required="required">
+                        <input type="text" name="Town" id="Town" pattern="^.{1,40}$" required="required"> <!-- Pattern takes any input as long as it is between 1 and 40 characters long -->
                     </div>
                     <div>
                         <label for="State">State</label> 
-                        <select name="State" id="State" required="required">
+                        <select name="State" id="State" required="required"> <!-- Since the first option has no given value, it can not be submitted, making it required to select a different option -->
                             <option value="">Please Select</option>			
                             <option value="VIC">VIC</option>			
                             <option value="NSW">NSW</option>
@@ -148,22 +148,22 @@
                     </div>
                     <div>
                         <label for="Postcode">Postcode</label> 
-                        <input type="text" name="Postcode" id="Postcode" pattern="^[0-9]{4}$" required="required">
+                        <input type="text" name="Postcode" id="Postcode" pattern="^[0-9]{4}$" required="required"> <!-- Pattern only accepts a string of four numbers -->
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Contacts</legend>
                     <div>
                         <label for="Email">Email</label> 
-                        <input type="text" name="Email" id="Email" pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9.]+\.[a-z]{2,4}$" required="required">
+                        <input type="text" name="Email" id="Email" pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9.]+\.[a-z]{2,4}$" required="required"> <!-- Pattern only accepts valid email formats, checking for an @ and allowing for as many .s as are required as long as it is followed by between 2 and 4 letters -->
                     </div>
                     <div>
                         <label for="Number">Phone number</label> 
-                        <input type="text" name="Number" id="Number" pattern="^[0-9]{8,12}$" required="required">
+                        <input type="text" name="Number" id="Number" pattern="^[0-9]{8,12}$" required="required"> <!-- Pattern only accepts a string of between 8 and 12 numerical characters -->
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend>Skills</legend>
+                    <legend>Skills</legend> <!-- The [] after the name "Skill" allows for multiple values to be submitted, because if it wasn't there, the form would only submit the first listed selected answer -->
                     <div class="align">
                         <input type="checkbox" id="Elec/Pow" name="Skill[]" value="Elec/Pow">
                         <label class="checkbox" for="Elec/Pow">Degree in Electrical Engineering or Power Systems</label>
