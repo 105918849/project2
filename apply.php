@@ -87,7 +87,7 @@
             <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php"> <!-- -->
                 <div>
                     <label for="JRN">Job reference number</label> 
-                    <input type="text" name="JRN" id="JRN" pattern="^[0-9a-zA-Z]{5}$" required="required"> <!-- Pattern only allows 5 Alphanumeric digits -->
+                    <input type="text" name="JRN" id="JRN" placeholder="e.g. 'XE443'" pattern="^[0-9a-zA-Z]{5}$" required="required"> <!-- Pattern only allows 5 Alphanumeric digits -->
                 </div>
                 <fieldset>
                     <legend>Your name</legend>
@@ -126,11 +126,11 @@
                     <legend>Address</legend>
                     <div>	
                         <label for="Address">Street Address</label> 
-                        <input type="text" name="Address" id="Address" pattern="^.{1,40}$" required="required"> <!-- Pattern takes any input as long as it is between 1 and 40 characters long -->
+                        <input type="text" name="Address" id="Address" placeholder="*123 Smith St" pattern="^.{1,40}$" required="required"> <!-- Pattern takes any input as long as it is between 1 and 40 characters long -->
                     </div>
                     <div>
                         <label for="Town">Suburb/Town</label>
-                        <input type="text" name="Town" id="Town" pattern="^.{1,40}$" required="required"> <!-- Pattern takes any input as long as it is between 1 and 40 characters long -->
+                        <input type="text" name="Town" id="Town" placeholder="*Melbourne" pattern="^.{1,40}$" required="required"> <!-- Pattern takes any input as long as it is between 1 and 40 characters long -->
                     </div>
                     <div>
                         <label for="State">State</label> 
@@ -148,18 +148,18 @@
                     </div>
                     <div>
                         <label for="Postcode">Postcode</label> 
-                        <input type="text" name="Postcode" id="Postcode" pattern="^[0-9]{4}$" required="required"> <!-- Pattern only accepts a string of four numbers -->
+                        <input type="text" name="Postcode" id="Postcode" placeholder="*1111" pattern="^[0-9]{4}$" required="required"> <!-- Pattern only accepts a string of four numbers -->
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Contacts</legend>
                     <div>
                         <label for="Email">Email</label> 
-                        <input type="text" name="Email" id="Email" pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9.]+\.[a-z]{2,4}$" required="required"> <!-- Pattern only accepts valid email formats, checking for an @ and allowing for as many .s as are required as long as it is followed by between 2 and 4 letters -->
+                        <input type="text" name="Email" id="Email" placeholder="*JohnSmith@gmail.com" pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9.]+\.[a-z]{2,4}$" required="required"> <!-- Pattern only accepts valid email formats, checking for an @ and allowing for as many .s as are required as long as it is followed by between 2 and 4 letters -->
                     </div>
                     <div>
                         <label for="Number">Phone number</label> 
-                        <input type="text" name="Number" id="Number" pattern="^[0-9]{8,12}$" required="required"> <!-- Pattern only accepts a string of between 8 and 12 numerical characters -->
+                        <input type="text" name="Number" id="Number" placeholder="*0423456789" pattern="^[0-9]{8,12}$" required="required"> <!-- Pattern only accepts a string of between 8 and 12 numerical characters -->
                     </div>
                 </fieldset>
                 <fieldset>
