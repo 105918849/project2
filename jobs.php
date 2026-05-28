@@ -115,6 +115,15 @@
     <em>Our Company is looking for new team members!</em><br>
     <em>Take your opportunity to apply now!</em>
  </h2>
+
+<div class="search-bar">
+    <form action="jobs.php" method="GET">
+        <label for="search"><strong>Search Jobs: </strong></label>
+        <input type="text" name="search" id="search" placeholder="Search by title or keyword...">
+        <button type="submit">Search</button>
+    </form>
+ </div>
+
  </section>
  <div id="container">
  <aside id="Page" class="job">
