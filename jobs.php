@@ -107,7 +107,43 @@
 
 
  <?php include 'nav.inc'; ?>
- <?php require_once("settings.php");?>
+
+ <?php require_once("settings.php");
+ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+if(isset($_GET['search']) && trim($_GET['search']) != "") {
+    $search = mysqli_real_escape_string($conn, $_GET['search']);
+    $sql = "SELECT * FROM jobs WHERE title LIKE '%$search%' OR job_ref LIKE '%$search%'";
+    $result = mysqli_query($conn, $sql);
+
+ if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<aside class="job">';
+        echo '<h1 class="Job title"><strong>' . $row['title'] . '</strong></h1>';
+        echo '<p><strong>Job Description: </strong>' . $row['description'] . '</p>';
+
+        echo '<ul>';
+        echo '<li>Reference: ' . $row['job_ref'] . '</li>';
+        echo '<li>Salary: ' . $row['salary'] . '</li>';
+        echo '<li>Reporting Line: ' . $row['reporting_line'] . '</li>';
+        echo '</ul>';
+    
+        echo '<p class="response">Key Responsibilities</p>';
+        echo $row['responsibilities'];
+
+        echo '<p class="skills">Required Skills</p>';
+        echo $row['skills'];
+
+        echo '<a href="apply.php?job_ref=' . $row['job_ref'] . '" class="buttons">Click here to apply</a>';
+        echo '</aside>';
+    }
+    } else {
+        echo 'No jobs found.';
+    }
+}
+
+ mysqli_close($conn);
+ ?>
 
   
  <section class="look">
@@ -116,14 +152,14 @@
     <em>Take your opportunity to apply now!</em>
  </h2>
 
-<div class="search-bar">
+<div class="searchbar">
     <form action="jobs.php" method="GET">
         <label for="search"><strong>Search Jobs: </strong></label>
-        <input type="text" name="search" id="search" placeholder="Search by title or keyword...">
+        <input type="text" name="search" id="search" placeholder="Search by title or reference">
         <button type="submit">Search</button>
     </form>
  </div>
-
+ 
  </section>
  <div id="container">
  <aside id="Page" class="job">
