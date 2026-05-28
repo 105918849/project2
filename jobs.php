@@ -107,6 +107,7 @@
 
 
  <?php include 'nav.inc'; ?>
+ <?php require_once("settings.php");?>
 
   
  <section class="look">
