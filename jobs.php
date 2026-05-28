@@ -107,6 +107,14 @@
 
 
  <?php include 'nav.inc'; ?>
+ 
+ <div class="searchbar">
+    <form action="jobs.php" method="GET">
+        <label for="search"><strong>Search Jobs: </strong></label>
+        <input type="text" name="search" id="search" placeholder="Search by title or reference">
+        <button type="submit">Search</button>
+    </form>
+ </div>
 
  <?php require_once("settings.php");
  $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
@@ -152,14 +160,6 @@ if(isset($_GET['search']) && trim($_GET['search']) != "") {
     <em>Take your opportunity to apply now!</em>
  </h2>
 
-<div class="searchbar">
-    <form action="jobs.php" method="GET">
-        <label for="search"><strong>Search Jobs: </strong></label>
-        <input type="text" name="search" id="search" placeholder="Search by title or reference">
-        <button type="submit">Search</button>
-    </form>
- </div>
- 
  </section>
  <div id="container">
  <aside id="Page" class="job">
