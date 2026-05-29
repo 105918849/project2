@@ -34,12 +34,16 @@ nav {
 }
 
 nav a {
+    font-size: clamp(0.7em, 2vw, 1em);
     text-decoration: none; /* Removes underline */
     background-color: rgb(207, 232, 255);
     display: flex;
     padding: 1em;
     border-radius: 15px; /* Curves the edges of the nav elements */
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: clamp(0px, 1vw, 20px);
+    margin-right: clamp(0px, 1vw, 20px);
     color: rgb(110, 159, 202);
     font-weight: bold;
 }

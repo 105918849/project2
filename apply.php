@@ -12,6 +12,7 @@
             #Page {
                 flex-direction: column;
                 align-items: stretch;
+                font-size: clamp(0.7em, 2vw, 1em)
             }
 
             fieldset {
@@ -20,7 +21,7 @@
             }
 
             form div {
-                padding: 10px;
+                padding: clamp(5px, 2vw, 10px);
             }
 
             .button {
@@ -97,7 +98,7 @@
             $errors = $_SESSION['errors'] ?? [];
             $backup = $_SESSION['backup'] ?? []; // An array of all the submitted values when the submit button is pressed
         ?>
-        <div id="Page" style="align-self: center; width: clamp(450px, 60vw, 800px);"> <!-- The clamp function allows you to set a minimum, preferred and maximum size, scaling between these values but never going past them. I wanted the form to take up roughly 60% of the screen so it looks like a physical application form while not ending up squishing to an extreme size when viewed on smaller screens, so I set a minimum limit that it will not get smaller than so as to keep it usable and legible -->
+        <div id="Page" style="align-self: center; width: clamp(300px, 60vw, 800px);"> <!-- The clamp function allows you to set a minimum, preferred and maximum size, scaling between these values but never going past them. I wanted the form to take up roughly 60% of the screen so it looks like a physical application form while not ending up squishing to an extreme size when viewed on smaller screens, so I set a minimum limit that it will not get smaller than so as to keep it usable and legible -->
             <form method="POST" action="process_eoi.php"> <!-- Sends all the data from the form to process_eoi.php -->
                 <div>
                     <label for="JRN">Job reference number</label> 
@@ -285,7 +286,7 @@
                     </div>
                     <div>
                         <label for="OtherSkills">Other Skills<br></label>
-                        <textarea style="border-radius: 5px;" id="OtherSkills" placeholder="Not required" name="OtherSkills" rows="5" cols="34"><?php echo $backup['OtherSkills'] ?? ''; ?></textarea>
+                        <textarea style="border-radius: 5px; width: clamp(180px, 20vw, 100%)" id="OtherSkills" placeholder="Not required" name="OtherSkills" rows="5" cols="40"><?php echo $backup['OtherSkills'] ?? ''; ?></textarea>
                     </div>
                 </fieldset>
                 <input class="button" type="submit" value="Apply">
