@@ -18,6 +18,14 @@
                 align-content: normal;
             }
 
+            #Details {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-content: normal;
+            }
+
             fieldset {
                 border-color: rgb(255, 176, 40);
             }
@@ -27,11 +35,28 @@
                 height: auto;
             }
 
-            figure {
-                display: flex;
-                flex-direction: column;
+            nav {
+                transition: 1s ease-in all;
+            }
+
+            nav a:hover {
+                transform:translateY(-0.15em)
+            }
+
+            #painting {
+                width: 400px;
+                height: auto;
+            }
+
+            #container {
+                display: flex; /* Makes the page container a flexbox */
+                flex-direction: row;
                 justify-content: center;
+                align-content: center;
                 align-items: center;
+                padding: 1em;
+                background-color: rgb(255, 243, 198);
+                border-radius: 15px; /* Curves the edges of the page */
             }
         </style>
 </head> 
@@ -41,7 +66,7 @@
     </header>
     <?php include 'nav.inc'; ?>
     <section>
-        <div id="Page" style="flex-flow: column;">
+        <div id="Details" style="flex-flow: column;">
         <h2>About us</h2>
             <p>
                 At Horizron Industries, we strive to be the gold standard for Smart City Infrastructure, offering consulting services with various specialties in software development, tech solutions and digital platforms in:
@@ -72,9 +97,9 @@
     <div style="height: 40px;"></div>
 
     <section>
-        <div id="Page" style="flex-flow: column;">
+        <div id="Details" style="flex-flow: column;">
         <h2>More about us</h2>
-            <h4>Positions and personal quotes:</h4>
+            <h3>Positions and personal quotes:</h3>
                 <dl>
                     <dt>Daniel Colgroove: Backened developer and Product director</dt>
                     <dd>"Finché c'è vita c'è speranza" -> (While there's life, there's hope)</dd>
@@ -96,18 +121,14 @@
 <div style="height: 40px;"></div>
 
     <section>
-        <div id="Page" style="flex-flow: column;">
+        <div id="Details" style="flex-flow: column;">
         <h2>Contacts and Availability</h2>
             <p>You can find us in Swinburne University's Hawthorn Campus in the Business Arts building in room BA603, or, you may send us a direct inquiry via our email</p>
             <ul>
-                <li>Monday
+                <li>Contact Hours:
                     <ul>
-                        <li>Contact Hours: <time>12:30</time> to <time>13:30</time></li>
-                    </ul>
-                </li>
-                <li>Friday
-                    <ul>
-                        <li>Contact Hours: <time>10:30</time> to <time>12:30</time></li>
+                        <li>Monday: <time>12:30</time> to <time>13:30</time></li>
+                        <li>Friday: <time>10:30</time> to <time>12:30</time></li>
                     </ul>
                 </li>
             </ul>
@@ -117,8 +138,8 @@
 <div style="height: 40px;"></div>
 
     <section>
-        <div id="Page" style="flex-flow: column;">
-        <h1>Fun facts!</h1>
+        <div id="Details" style="flex-flow: column;">
+        <h2>Fun facts!</h2>
                 <li>Daniel:
                     <ul>
                         <li>My dream job is to become a Game developer. My favourite snack is a whole carrot. My Hometown is Wodonga VIC. I own 4 cats back home, My mum is a radio presenter</li>
@@ -139,7 +160,6 @@
                         <li>N/A</li>
                     </ul>
                 </li>
-            </ul>
         </div>
     </section>
 
@@ -154,18 +174,20 @@
 
 <div style="height: 40px;"></div>
 
+<div id="container">
     <section>
-        <div id="Page" style="flex-flow: column;">
+        <div>
             <h1>Acknowledgement of Country and respecting Aboriginal and Torres Strait Islander peoples as the original owners of the land</h1>
                 <p>Horizron Industries acknowledges all Aboriginal, Torres Strait Islander and Wurundjeri People of the Kulin Nation as the traditional owners of the land, on which our offices are located, and recognises their continuing connection to land, sea, culture and community. We pay our respects to Elders past, present and emerging.</p>
-                    <aside>
-                        <figure>
-                            <!--credit https://www.flickr.com/photos/cogdog/1633371567-->
-                            <img id="painting" src="images/painting.jpg" alt="Painting">
-                            <figcaption></figcaption>
-                        </figure>
-                    </aside>
-            </div>
+        </div>
+        <div>
+            <figure>
+                    <!--credit https://www.flickr.com/photos/cogdog/1633371567-->
+                    <img id="painting" src="images/painting.jpg" alt="Painting">
+                <figcaption></figcaption>
+            </figure>
+        </div>
+    </div>
     </section>
     <?php include 'footer.inc'; ?>
 </body>
