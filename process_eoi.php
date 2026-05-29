@@ -36,7 +36,7 @@
             skills VARCHAR(100),
             otherskills TEXT,
             status ENUM('New', 'Current', 'Final') DEFAULT 'New'
-        )"; // As the command name suggests, it creats a table if one by the specified name doesn't already exist. In this case the eoi table does exist, so it doesn't create anything
+        )"; // As the command name suggests, it creats a table if one by the specified name doesn't already exist
 
         mysqli_query($conn, $createTable);
 
