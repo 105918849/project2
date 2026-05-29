@@ -240,7 +240,7 @@
                         $backupSkills = isset($backup['Skill']) && $backup['Skill'] !== '' ? explode(", ", $backup['Skill']) : []; // If the Skill backup is set and isn't empty, then it converts the string back into an array, removing the commas and spaces
                         ?>
                     <div class="align">
-                        <input type="checkbox" id="Elec/Pow" name="Skill[]" value="Elec/Pow" <?php echo in_array("Elec/Pow", $backupSkills) ? 'checked' : ''; ?>> <!-- Checks if a curtain value is in the backup array and if it is sets the box as checked -->
+                        <input type="checkbox" id="Elec/Pow" name="Skill[]" value="Elec/Pow" <?php echo in_array("Elec/Pow", $backupSkills) ? 'checked' : ''; ?>> <!-- Checks if a certain value is in the backup array and if it is sets the box as checked -->
                         <label class="checkbox" for="Elec/Pow">Degree in Electrical Engineering or Power Systems</label>
                     </div>
                     <div class="align">
