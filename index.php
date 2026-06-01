@@ -21,6 +21,7 @@
         </style>
     </head>
     <body>
+        <nav><a href="login.php" style="position: absolute; top: 50px; right: 50px; background: white; color: black;">Login</a></nav>
         <header>
             <h1>Horizon Industries</h1>
         </header>
