@@ -17,6 +17,13 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
+        if(isset($_POST['log_out'])) { //if the user clicked the log out button
+                session_unset();
+                session_destroy();
+                header("Location: index.php");
+                exit();
+            }
+
         if(isset($_POST['list_all'])) { //if the user clicked the list all button
                 $query = "SELECT * FROM eoi;";
             }

@@ -52,6 +52,11 @@
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
     ?>
+    <nav>
+        <form method="POST" action="manage_query.php">
+        <button type="submit" name="log_out" style="position: absolute; top: 50px; right: 50px; background: white; color: black;">Log out</button>
+        </form>
+    </nav>
     <h1>
         Welcome, <?php echo $_SESSION['username']; ?>
     </h1>
