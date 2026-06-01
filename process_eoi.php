@@ -158,7 +158,8 @@
 
         if ($result) {
         $id = mysqli_insert_id($conn);
-        echo "<header><h1>✅ Thank you for your interest, we will look at your application shortly.<br> Your application reference number is: $id</header></h1>";
+        $_SESSION['id'] = $id;
+        echo "<h1>✅ Thank you for your interest, we will look at your application shortly.<br> Your application reference number is: $id</h1>";
         session_unset();
         session_destroy();
         } else {
@@ -169,11 +170,11 @@
         header('Location: apply.php');
     }
 
-    function clean_input($data) { // Runs all passed data through the tree cleaning functions to make sure it is safe to use and display
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+    function clean_input($data) { // Runs all passed data through the three cleaning functions to make sure it is safe to use and display
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 ?>
 </body>
