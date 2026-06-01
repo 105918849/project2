@@ -9,7 +9,7 @@
     <title>Search</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
+ <body>
 <?php
 //import setting.php for one time
 require_once("settings.php");
@@ -19,11 +19,13 @@ $result = false;
 //ask the database for jobs if the user actually typed something and match search
 if(isset($_GET['search'])) {
     $search = mysqli_real_escape_string($conn, $_GET['search']);
-    $sql = "SELECT * FROM jobs WHERE title LIKE '%$search%' OR job_ref LIKE '%$search%'";
+    $sql = "SELECT * FROM jobs WHERE title LIKE '%$search%' OR job_ref LIKE '%$search%'"; 
+    } else {
+    $sql = "SELECT * FROM jobs"; // show all jobs when no search
+}
 
 //run the query
     $result = mysqli_query($conn, $sql);
-}
 ?>
 </body>
 </html>
