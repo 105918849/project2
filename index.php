@@ -27,8 +27,8 @@
         </header>
         <?php include 'nav.inc'; ?> <!-- Navagation menu that links to the other pages and darkens when you hover over them -->
         <div id="Page" style="flex-flow: column;">
-            <form action="search" method="GET" style="margin: 20px; display: flex; flex-direction: column;">
-                <input type="search" name="q" placeholder="Search..." aria-label="Search"> <!-- Search bar -->
+            <form action="jobs.php" method="GET" style="margin: 20px; display: flex; flex-direction: column;">
+                <input type="text" name="search" id="search" placeholder="Search..." aria-label="Search"> <!-- Search bar -->
                 <button type="submit">Search</button>
             </form>
             <img src="images/logo.png" alt="Our logo" title="Logo" style="display: flex; height: clamp(140px, 15vw, 15vw);"> <!-- Logo that's height displays at 15% of the current viewport width with a maximum of 15% and a minimum of 140 pixels high -->
