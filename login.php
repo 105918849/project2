@@ -11,7 +11,6 @@
         <style>
             #Page {
                 justify-content: center;
-                align-self: center;
                 width: 250px
             }
 
@@ -20,12 +19,32 @@
                 width: 100%;
                 text-align: center;
             }
+
+            body {
+                justify-content: center;
+                align-items: center;   
+                height: 90vh;
+            }
+
+            #error {
+                font-weight: bold;
+                padding: 5px;
+                color: rgb(255, 255, 255);
+                text-align: center;
+                background-color: rgb(255, 0, 0);
+                border-radius: 15px; /* Curves the edges of the page */
+            }
         </style>
 </head>
 <body>
     <?php
     session_start(); 
+    $error = $_SESSION['error'] ?? ''; // the error message
     $backup = $_SESSION['backup'] ?? []; // An array of all the submitted values when the login button is pressed
+
+    if (!empty($error ?? '')) { // If there's something stored in $error print it out above the login box
+        echo "<p id=\"error\">{$error}</p>";
+    }
     ?>
     <div id="Page"> 
         <form method="POST" action="login_process.php" style="text-align: center"> <!-- Sends all the data from the form to login_process.php -->
@@ -43,7 +62,7 @@
         <a href="index.php">GO BACK</a>
     </nav>
     <?php 
-    unset($_SESSION['backup']); // Clears everything in $_SESSION['backup'] so that it can be used next time the login button is pressed
+    unset($_SESSION['backup'], $_SESSION['error']); // Clears everything in $_SESSION['backup'] and $_SESSION['error'] so that they can be used next time the login button is pressed
     ?>
 </body>
 </html>

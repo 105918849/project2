@@ -16,23 +16,46 @@
     ini_set('display_errors', 1);
     require_once("settings.php");
 
-    $conn = mysqli_connect($host, $username, $password, $database);
+    if($_SERVER["REQUEST_METHOD"] == "POST") { //check if the user got here through the searchbar or through pressing the login button
 
-    // Get user input
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
-    // Simple query to check credentials
-    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-    $result = mysqli_query($conn, $query);
-    $user = mysqli_fetch_assoc($result);
+        $username = clean_input($_POST['Username'] ?? '');
+        $password = clean_input($_POST['Password'] ?? '');
 
-    if ($user) {
-    $_SESSION['username'] = $user['username'];
-    header("Location: welcome.php");
-    exit();
+        $error = "Incorrect username or password";
+
+        $stmt = $conn->prepare("SELECT * FROM management WHERE username = ? AND password = ?"); //checks to see if the entered values match with the stored ones safely
+        $stmt->bind_param("ss", $username, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = mysqli_fetch_assoc($result);
+
+        if ($user) { //if true, regenerate the session id and set the user's session, then send them to manage.php
+            session_regenerate_id(true);
+            $_SESSION['username'] = $user['username'];
+            header("Location: manage.php");
+            exit();
+        } else {
+            $_SESSION['error'] = $error; //if false, pass the error back to login.php to display
+
+            $_SESSION['backup'] = [ //store the previously send values to past back into the fields for easier resubmission
+                'Username' => $username,
+                'Password' => $password,
+            ];
+            header("Location: login.php");
+            exit();
+        }
     } else {
-    echo "❌ Incorrect username or password.";
+        header("Location: login.php");
+        exit();
+    }
+
+    function clean_input($data) { // Runs all passed data through the three cleaning functions to make sure it is safe to use and display
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 ?>
 </body>
