@@ -10,6 +10,7 @@
     
   <link rel="stylesheet" href="styles/styles.css">
     <style>
+        /* mMke a banner for h2 */
         .look { 
             color: rgb(0, 0, 0);
             text-align: center;  
@@ -19,7 +20,8 @@
             border-radius: 15px;
         }
 
-        .images {  
+        /* Make the jobs image centred*/
+        .images {   
         display: block; 
         margin: 20px auto; 
         max-width: 100%; 
@@ -36,6 +38,7 @@
             justify-content: space-evenly;
         }
 
+        /* Styles individual job list */
         .job { 
             font-size: 18px;
             width: 85%;
@@ -81,10 +84,12 @@
             cursor: pointer;
         }
 
+        /* Hover effect for apply buttons */
         .buttons:hover {
             background-color: rgb(199, 239, 214);
         }
 
+        /* Styles inside the joblists sections */
         section a {
             display: flex;
             flex-direction: column;
