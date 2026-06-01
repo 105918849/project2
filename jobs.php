@@ -10,7 +10,7 @@
     
   <link rel="stylesheet" href="styles/styles.css">
     <style>
-        /* mMke a banner for h2 */
+        /* Make a banner for h2 */
         .look { 
             color: rgb(0, 0, 0);
             text-align: center;  
@@ -20,7 +20,7 @@
             border-radius: 15px;
         }
 
-        /* Make the jobs image centred*/
+        /* Adjust the jobs image centred*/
         .images {   
         display: block; 
         margin: 20px auto; 
@@ -32,7 +32,7 @@
             font-weight: bold;
             text-decoration-line: underline;
         }
-
+        /* Highlights the required skills section headers */
         #container {
             display: flex;
             justify-content: space-evenly;
@@ -67,12 +67,12 @@
             margin-bottom: 115px;
             
         }
-
+        /* Highlights the key responsibilities headers */
         .response {
             font-weight: bold;
             text-decoration: underline;
         }
-
+        /* Styles the apply buttons */
         .buttons {
             color: black;
             text-decoration:solid;
@@ -107,56 +107,54 @@
 
  <body>
 
- <header id="jobhead"> 
+ <header id="jobhead">  
     <h1 style="color: rgb(255, 176, 40);">Job opportunities</h1>
  </header>
 
-
+<!-- include nav.inc into jobs.php -->
  <?php include 'nav.inc'; ?>
  
- <div class="searchbar">
+ <!-- searchbar box -->
+ <aside class="searchbar">
     <form action="jobs.php" method="GET">
         <label for="search"><strong>Search Jobs: </strong></label>
         <input type="text" name="search" id="search" placeholder="Search by title or reference">
         <button type="submit">Search</button>
     </form>
- </div>
+</aside>
 
- <?php require_once("settings.php");
- $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+<!-- include search.php into jobs.php -->
+ <?php include 'search.php'; ?> 
 
-if(isset($_GET['search']) && trim($_GET['search']) != "") {
-    $search = mysqli_real_escape_string($conn, $_GET['search']);
-    $sql = "SELECT * FROM jobs WHERE title LIKE '%$search%' OR job_ref LIKE '%$search%'";
-    $result = mysqli_query($conn, $sql);
+ <?php 
+if ($result && mysqli_num_rows($result) > 0) {
+     while ($row = mysqli_fetch_assoc($result)) {  
+        // Print the HTML for job, and insert the data from the database
+         echo '<section class="job">';
+         echo '<h1 class="Job title"><strong>' . $row['title'] . '</strong></h1>';
+         echo '<p><strong>Job Description: </strong>' . $row['description'] . '</p>';
 
- if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo '<section class="job">';
-        echo '<h1 class="Job title"><strong>' . $row['title'] . '</strong></h1>';
-        echo '<p><strong>Job Description: </strong>' . $row['description'] . '</p>';
-
-        echo '<ul>';
-        echo '<li>Reference: ' . $row['job_ref'] . '</li>';
-        echo '<li>Salary: ' . $row['salary'] . '</li>';
-        echo '<li>Reporting Line: ' . $row['reporting_line'] . '</li>';
-        echo '</ul>';
+         echo '<ul>';
+         echo '<li>Reference: ' . $row['job_ref'] . '</li>';
+         echo '<li>Salary: ' . $row['salary'] . '</li>';
+         echo '<li>Reporting Line: ' . $row['reporting_line'] . '</li>';
+         echo '</ul>';
     
-        echo '<p class="response">Key Responsibilities</p>';
-        echo $row['responsibilities'];
+         echo '<p class="response">Key Responsibilities</p>';
+         echo $row['responsibilities'];
 
-        echo '<p class="skills">Required Skills</p>';
-        echo $row['skills'];
+         echo '<p class="skills">Required Skills</p>';
+         echo $row['skills'];
 
-        echo '<a href="apply.php?job_ref=' . $row['job_ref'] . '" class="buttons">Click here to apply</a>';
-        echo '</section>';
-    }
-    } else {
-        echo 'No jobs found.';
-    }
-}
-
- mysqli_close($conn);
+         // Create an apply button that links to apply.php
+         echo '<a href="apply.php?job_ref=' . $row['job_ref'] . '" class="buttons">Click here to apply</a>';
+         echo '</section>';
+     }
+ } else if (isset($_GET['search'])) { 
+     echo '<h3 style="text-align:center; width:100%;">No jobs found matching your search.</h3>'; // Show a message if they searched for a job that doesn't exist or something that doesn't match
+ }
+    // Close the database connection
+     mysqli_close($conn);
  ?>
 
   
@@ -168,7 +166,8 @@ if(isset($_GET['search']) && trim($_GET['search']) != "") {
 
 </aside>
  <div id="container">
- <section id="Page" class="job">
+
+ <section id="Page" class="job"> <!-- Job Listing 1: Smart Grid Architecture -->
 <h1 id="architect">
     <strong>Smart Grid Architecture</strong>
 </h1>
@@ -207,7 +206,7 @@ if(isset($_GET['search']) && trim($_GET['search']) != "") {
 
 <section id="Page" class="job">
     <h1 id="manager">
-    <strong>Project Manager</strong>
+    <strong>Project Manager</strong> <!-- Job Listing 2: Project Manager -->
 </h1>
  <p id="job2des"><strong>Job Description:</strong> You will lead the end-to-end delivery of digital platforms for councils and industry partners. 
     This role involves managing the deployment of smart transport  and energy monitoring systems, ensuring projects are completed on time, within budget, 
@@ -240,7 +239,7 @@ if(isset($_GET['search']) && trim($_GET['search']) != "") {
  <a href="apply.html" class="buttons">Click here to apply</a>
 </section>
 </div>
- <?php include 'footer.inc'; ?>
+ <?php include 'footer.inc'; ?> <!-- include footer.inc into jobs.php -->
 </body>
 
 
