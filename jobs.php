@@ -101,6 +101,18 @@
             border-radius: 15px;
             margin: 40px;
         }
+        
+        /* Styles serach bar background */
+        .searchbar {
+            background-color: aliceblue;
+            border: 5px solid black;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
     </style>
 
  </head>
@@ -111,14 +123,13 @@
     <h1 style="color: rgb(255, 176, 40);">Job opportunities</h1>
  </header>
 
-<!-- include nav.inc into jobs.php -->
+
  <?php include 'nav.inc'; ?>
  
- <!-- searchbar box -->
  <aside class="searchbar">
     <form action="jobs.php" method="GET">
         <label for="search"><strong>Search Jobs: </strong></label>
-        <input type="text" name="search" id="search" placeholder="Search by title or reference">
+        <input type="text" name="search" id="search" placeholder="Search for jobs">
         <button type="submit">Search</button>
     </form>
 </aside>
@@ -151,7 +162,7 @@ if ($result && mysqli_num_rows($result) > 0) {
          echo '</section>';
      }
  } else if (isset($_GET['search'])) { 
-     echo '<h3 style="text-align:center; width:100%;">No jobs found matching your search.</h3>'; // Show a message if they searched for a job that doesn't exist or something that doesn't match
+     echo '<h3 style="text-align:center; width:100%; background-color: aliceblue; border: 5px solid black;">No jobs found matching your search.</h3>'; // Show a message if they searched for a job that doesn't exist or something that doesn't match
  }
     // Close the database connection
      mysqli_close($conn);
@@ -239,7 +250,7 @@ if ($result && mysqli_num_rows($result) > 0) {
  <a href="apply.php" class="buttons">Click here to apply</a>
 </section>
 </div>
- <?php include 'footer.inc'; ?> <!-- include footer.inc into jobs.php -->
+ <?php include 'footer.inc'; ?>
 </body>
 
 
