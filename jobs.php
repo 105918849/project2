@@ -102,23 +102,22 @@
             border-radius: 15px;
             margin: 40px;
         }
-        
-        /* Styles serach bar background */
-        .searchbar {
-            background-color: aliceblue;
-            border: 5px solid black;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px auto;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-        }
         /* Make jobs stay at the center */
         #jobrender {
              display: flex;
              flex-wrap: wrap;
              justify-content: center;
+        }
+        /* Styles serachbar background by using aside */
+        aside {
+            float: right;
+            width: 25%;
+            margin: 20px ;
+            margin-left: auto;
+            padding: 20px;
+            background-color: aliceblue;
+            border: 5px solid black;
+            border-radius: 15px;
         }
     </style>
  </head>
