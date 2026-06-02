@@ -12,8 +12,6 @@
 <body>
 <?php
     session_start();
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
     require_once("settings.php");
 
     if($_SERVER["REQUEST_METHOD"] == "POST") { //check if the user got here through the searchbar or through pressing the login button
