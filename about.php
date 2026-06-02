@@ -1,6 +1,6 @@
 <?php 
 // Include the database connection file
-require_once 'db.php'; 
+require_once 'settings.php'; 
 
 // Fetch users from database
 try {
@@ -27,8 +27,8 @@ try {
                 flex-direction: column;
                 flex-wrap: nowrap;
                 justify-content: space-evenly;
-                align-items: stretch;
-                align-content: normal;
+                align-items: center;
+                align-content: center;
             }
 
             #Details {
@@ -61,6 +61,36 @@ try {
                 transform:translateY(-0.15em)
             }
 
+	    table {
+                width: 80%;
+                border-radius: 7px;
+                border-collapse: collapse;
+                padding: 10px 10px;
+                overflow: hidden;
+            }
+
+            th {
+                background-color: rgb(207, 232, 255);
+	            color: rgb(67, 109, 145);
+	            border: 3px solid rgb(110, 159, 202);
+	            padding: 10px 10px;
+	            border-radius: 7px;
+            }
+
+            td {
+                border: 3px solid #D9B8E5;
+                padding: 10px 10px;
+                border-radius: 7px;
+            }
+
+            tr {
+                background-color: #E9D6F0;
+                color: #AF66CC;
+                padding: 10px 10px;
+                border-radius: 7px;
+            }
+
+
             #painting {
                 width: 400px;
                 height: auto;
@@ -69,8 +99,8 @@ try {
             #container {
                 display: flex; /* Makes the page container a flexbox */
                 flex-direction: column;
-                justify-content: center;
-                align-content: center;
+                justify-content: space-evenly;
+                text-align: center;
                 align-items: center;
                 padding: 1em;
                 background-color: rgb(255, 243, 198);
@@ -102,7 +132,7 @@ try {
     <div style="height: 40px;"></div>
 
     <section>
-        <div id="Page" style="flex-flow: column;">
+        <div id="Page">
         <h2>Meet the team</h2>
             <p></p>
             <figure>
@@ -181,7 +211,7 @@ try {
         </div>
     </section>
 
-    <div style="height: 240px;"></div>
+    <div style="height: 80px;"></div>
 
     <section>
         <div id="Page" style="flex-flow: column;">
@@ -208,8 +238,10 @@ try {
     </div>
     </section>
 
+    <div style="height: 80px;"></div>
 	
 <section>
+    <div id="Page">
         <?php if (!empty($users)): ?>
         <table>
             <thead>
@@ -234,6 +266,7 @@ try {
     <?php else: ?>
         <p>No records found in the system database.</p>
     <?php endif; ?>
+    </div>
 </section>
     <?php include 'footer.inc'; ?>
 </body>
