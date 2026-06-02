@@ -1,3 +1,16 @@
+<?php 
+// Include the database connection file
+require_once 'db.php'; 
+
+// Fetch users from database
+try {
+    $stmt = $pdo->query("SELECT ID, memberName, contNumb, contDesc FROM contributions");
+    $users = $stmt->fetchAll();
+} catch (Exception $e) {
+    echo "Query failed: " . $e->getMessage();
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +32,12 @@
             }
 
             #Details {
-                display: flex;
+                display: flex; /* Makes the page container a flexbox */
+                padding: 1em;
+                background-color: rgb(255, 243, 198);
+                align-items: right;
+                text-align: space-between;
+                border-radius: 15px; /* Curves the edges of the page */
                 flex-direction: row;
                 flex-wrap: nowrap;
                 justify-content: space-between;
@@ -50,7 +68,7 @@
 
             #container {
                 display: flex; /* Makes the page container a flexbox */
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: center;
                 align-content: center;
                 align-items: center;
@@ -189,6 +207,34 @@
         </div>
     </div>
     </section>
+
+	
+<section>
+        <?php if (!empty($users)): ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Record ID</th>
+                    <th>Member Name</th>
+                    <th>Contribution Number</th>
+                    <th>Contribution Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($user['ID']); ?></td>
+                        <td><?php echo htmlspecialchars($user['memberName']); ?></td>
+                        <td><?php echo htmlspecialchars($user['contNumb']); ?></td>
+                        <td><?php echo htmlspecialchars($user['contDesc']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>No records found in the system database.</p>
+    <?php endif; ?>
+</section>
     <?php include 'footer.inc'; ?>
 </body>
 </html>
