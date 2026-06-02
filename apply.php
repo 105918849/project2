@@ -113,7 +113,7 @@
             $response = $_SESSION['response'] ?? ''; // The response text returned from process_eoi.php
 
             if (!empty($response ?? '')) { // If there's something stored in $response print it out above the application page
-                echo "<div id=\"response\">{$response}</div>";
+                echo "<div id=\"response\" role=\"alert\">{$response}</div>";
                 session_unset();
                 session_destroy();
             }

@@ -21,17 +21,17 @@
         </style>
     </head>
     <body>
-        <nav><a href="login.php" style="position: absolute; top: 50px; right: 50px; background: white; color: black;">Login</a></nav>
+        <nav aria-label="Login navigation"><a href="login.php" style="position: absolute; top: 50px; right: 50px; background: white; color: black;">Login</a></nav>
         <header>
             <h1>Horizon Industries</h1>
         </header>
         <?php include 'nav.inc'; ?> <!-- Navagation menu that links to the other pages and darkens when you hover over them -->
-        <div id="Page" style="flex-flow: column;">
+        <main id="Page" style="flex-flow: column;">
             <form action="jobs.php" method="GET" style="margin: 20px; display: flex; flex-direction: column;">
                 <input type="text" name="search" id="search" placeholder="Search for jobs" aria-label="Search for jobs"> <!-- Search bar -->
                 <button type="submit">Search</button>
             </form>
-            <img src="images/logo.png" alt="Our logo" title="Logo" style="display: flex; height: clamp(140px, 15vw, 15vw);"> <!-- Logo that's height displays at 15% of the current viewport width with a maximum of 15% and a minimum of 140 pixels high -->
+            <img src="images/logo.png" alt="Black and grey buildings in front of an orange rising sun" title="Logo" style="display: flex; height: clamp(140px, 15vw, 15vw);"> <!-- Logo that's height displays at 15% of the current viewport width with a maximum of 15% and a minimum of 140 pixels high -->
             <h2>Better living starts today.</h2>
             <h3 style="width: clamp(50vw, 60vw, 100%); font-size: clamp(0.8em, 2vw, 1.2em);">We here at Horizon Industries pride ourselves on our commitment to the lives of the people and the planet. We work closely with city councils and industry partners to develop and deploy plans that improve infrastructure and increase quality of life for those living within it as well as introducing smart transport solutions and renewable energy to improve sustainability.</h3> <!-- The clamp tag fanctions by setting a minimum, preferred and maximum value. This has been set to prevent the textbox from stretching the whole way across the page and looking ugly on a computer (50vw) while being able to fill more of the screen as the screen gets smaller so it doesn't get squished on a phone (100%) -->
             <table style="font-size: clamp(0.7em, 2vw, 1em)">
@@ -67,7 +67,7 @@
                     </tr>
                 </tfoot>
             </table>
-        </div>
+        </main>
         <?php include 'footer.inc'; ?>
     </body>
 </html>

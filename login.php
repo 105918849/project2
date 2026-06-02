@@ -43,17 +43,17 @@
     $backup = $_SESSION['backup'] ?? []; // An array of all the submitted values when the login button is pressed
 
     if (!empty($error ?? '')) { // If there's something stored in $error print it out above the login box
-        echo "<p id=\"error\">{$error}</p>";
+        echo "<p role=\"alert\" id=\"error\">{$error}</p>";
     }
     ?>
     <div id="Page"> 
-        <form method="POST" action="login_process.php" style="text-align: center"> <!-- Sends all the data from the form to login_process.php -->
-            <legend>Admin Login</legend>
+        <form method="POST" action="login_process.php" aria-labelledby="login-title" style="text-align: center"> <!-- Sends all the data from the form to login_process.php -->
+            <legend id="login-title">Admin Login</legend>
             <div>
-                <input type="text" name="Username" id="Username" placeholder="Username" value="<?php echo $backup['Username'] ?? ''; ?>"> <!-- Sets the value to whatever was put into this field when the login button was pressed -->
+                <input type="text" name="Username" id="Username" placeholder="Username" autofocus value="<?php echo $backup['Username'] ?? ''; ?>"> <!-- Sets the value to whatever was put into this field when the login button was pressed -->
             </div>
             <div>
-                <input type="text" name="Password" id="Password" placeholder="Password" value="<?php echo $backup['Password'] ?? ''; ?>"> <!-- Sets the value to whatever was put into this field when the login button was pressed -->
+                <input type="password" name="Password" id="Password" placeholder="Password" value="<?php echo $backup['Password'] ?? ''; ?>"> <!-- Sets the value to whatever was put into this field when the login button was pressed -->
             </div>
             <input class="button" type="submit" value="Login" style="align-self: center">
         </form>

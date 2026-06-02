@@ -1,4 +1,4 @@
-<nav>
+<nav aria-label="Page navigation">
     <a href="index.php">HOME</a>
     <a href="jobs.php">AVALIABLE JOBS</a>
     <a href="apply.php">APPLY NOW</a>

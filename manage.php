@@ -28,6 +28,11 @@
                 margin: 1em;
             }
 
+            label {
+                font-weight: bold;
+                color: white;
+            }
+
             select {
                 font-size: clamp(0.4em, 1vw, 0.8em);
             }
@@ -62,38 +67,39 @@
     </h1>
     <div>
         <form method="POST" action="manage_query.php">
-        <button type="submit" name="list_all">List all EOIs</button>
+            <button type="submit" name="list_all">List all EOIs</button>
         </form>
         <form method="POST" action="manage_query.php">
-        <select name="Sort" id="Sort">
-            <option value="">List by?</option>			
-            <option value="list_ref">Reference number</option>
-            <option value="list_first">First name</option>
-            <option value="list_last">Last name</option>
-            <option value="list_both">First and last name</option>
-            <option value="list_gender">Gender</option>
-            <option value="list_address">Address</option>
-            <option value="list_contacts">Contacts</option>
-            <option value="list_skills">Skills</option>
-            <option value="list_otherskills">Otherskills</option>
-            <option value="list_status">Status</option>
-        </select>
-        <button type="submit">Sort</button>
+            <select name="Sort" id="Sort">
+                <option value="">List by?</option>			
+                <option value="list_ref">Reference number</option>
+                <option value="list_first">First name</option>
+                <option value="list_last">Last name</option>
+                <option value="list_both">First and last name</option>
+                <option value="list_gender">Gender</option>
+                <option value="list_address">Address</option>
+                <option value="list_contacts">Contacts</option>
+                <option value="list_skills">Skills</option>
+                <option value="list_otherskills">Otherskills</option>
+                <option value="list_status">Status</option>
+            </select>
+            <button type="submit">Sort</button>
         </form>
         <form method="POST" action="manage_query.php">
-        <input type="text" name="delete" placeholder="JRN" style="width: 60px;">
-        <button type="submit">Delete</button>
-        </form>
+            <label for="delete">Delete EOI by JRN</label>
+            <input type="text" name="delete" placeholder="JRN" style="width: 60px;">
+            <button type="submit">Delete</button>
         </form>
         <form method="POST" action="manage_query.php">
-        <input type="text" name="change" placeholder="EOI#" style="width: 40px;">
-        <select name="Status" id="Status">
-            <option value="">Change status?</option>			
-            <option value="New">New</option>
-            <option value="Current">Current</option>
-            <option value="Final">Final</option>
-        </select>
-        <button type="submit">Change</button>
+            <label for="change">Change status by EOInumber</label>
+            <input type="text" name="change" placeholder="EOI#" style="width: 40px;">
+            <select name="Status" id="Status">
+                <option value="">Change status?</option>			
+                <option value="New">New</option>
+                <option value="Current">Current</option>
+                <option value="Final">Final</option>
+            </select>
+            <button type="submit">Change</button>
         </form>
     </div>
     <?php
