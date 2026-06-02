@@ -25,13 +25,13 @@
 
         $error = "Incorrect username or password";
 
-        $stmt = $conn->prepare("SELECT * FROM management WHERE username = ? AND password = ?"); //checks to see if the entered values match with the stored ones safely
-        $stmt->bind_param("ss", $username, $password);
+        $stmt = $conn->prepare("SELECT * FROM management WHERE username = ?"); //checks to see if the entered username matchs with the stored one safely
+        $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
         $user = mysqli_fetch_assoc($result);
 
-        if ($user) { //if true, regenerate the session id and set the user's session, then send them to manage.php
+        if ($user && password_verify($password, $user['password'])) { //if true, regenerate the session id and set the user's session, then send them to manage.php
             session_regenerate_id(true);
             $_SESSION['username'] = $user['username'];
             header("Location: manage.php");
