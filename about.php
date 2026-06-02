@@ -29,6 +29,7 @@ try {
                 justify-content: space-evenly;
                 align-items: center;
                 align-content: center;
+                border: 6px solid rgb(255, 176, 40);
             }
 
             #Details {
@@ -37,6 +38,7 @@ try {
                 background-color: rgb(255, 243, 198);
                 align-items: right;
                 text-align: space-between;
+                border: 6px solid rgb(255, 176, 40);
                 border-radius: 15px; /* Curves the edges of the page */
                 flex-direction: row;
                 flex-wrap: nowrap;
@@ -52,16 +54,18 @@ try {
                 max-width: 70%;
                 height: auto;
             }
-
-            nav {
-                transition: 1s ease-in all;
+            
+            nav a {
+                border: 4px solid rgb(110, 159, 202);
+                transition: 0.12s ease-in all;
             }
 
             nav a:hover {
-                transform:translateY(-0.15em)
+                transform:translateY(-0.1em);
+                border: 4px solid rgb(67, 109, 145);
             }
 
-	    table {
+            table {
                 width: 80%;
                 border-radius: 7px;
                 border-collapse: collapse;
@@ -69,7 +73,8 @@ try {
                 overflow: hidden;
             }
 
-            th {
+
+	        th {
                 background-color: rgb(207, 232, 255);
 	            color: rgb(67, 109, 145);
 	            border: 3px solid rgb(110, 159, 202);
@@ -80,14 +85,18 @@ try {
             td {
                 border: 3px solid #D9B8E5;
                 padding: 10px 10px;
-                border-radius: 7px;
             }
 
             tr {
                 background-color: #E9D6F0;
                 color: #AF66CC;
                 padding: 10px 10px;
-                border-radius: 7px;
+            }
+            
+            td:hover {
+         	background-color: #D9B8E5;
+            	color: #9F46C3;
+        	border: 3px solid #C38DD8;
             }
 
 
@@ -104,14 +113,17 @@ try {
                 align-items: center;
                 padding: 1em;
                 background-color: rgb(255, 243, 198);
+                border: 6px solid rgb(255, 176, 40);
                 border-radius: 15px; /* Curves the edges of the page */
             }
         </style>
 </head> 
 <body>
+<div id="Page">
     <header>
         <h1>Who are we?</h1>
     </header>
+</div>
     <?php include 'nav.inc'; ?>
     <section>
         <div id="Details" style="flex-flow: column;">
@@ -133,7 +145,7 @@ try {
 
     <section>
         <div id="Page">
-        <h2>Meet the team</h2>
+        <h2>Meet our group (TYD)</h2>
             <p></p>
             <figure>
                 <img id="groupphoto" src="images/group.png" alt="A group photo showcasing Daniel, Yianni and Tanadol">
