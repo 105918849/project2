@@ -130,7 +130,7 @@
             }
         }
 
-        if ($hasErrors) {
+        if ($hasErrors) { // If $hasErrors was set to true, store all errors and backups into the session and pass them back to apply.php
             $_SESSION['errors'] = $errors;
 
             $_SESSION['backup'] = [
