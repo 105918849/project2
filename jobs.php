@@ -44,6 +44,7 @@
             width: 85%;
             margin: 1em 0;
             border: 10px groove rgb(0, 0, 0);
+            border-radius: 15px; /* Curves the edges of the job elements */
             background-color: rgb(255, 243, 198);
             flex-direction: column;
             
@@ -159,7 +160,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     //Display jobs
     echo '<section class="job">';
     echo '<h1 class="look"><strong>' . $row['title'] . '</strong></h1>';
-    echo '<img class="images" src="images/Smart_grid.png" alt="job image" width="300" height="400">';
+    echo '<img class="images" src="images/job' . $row['jobid'] . '.png" alt="job image" width="300" height="400">';
     echo '<p><strong>Job Description: </strong>' . $row['description'] . '</p>';
 
     // Display job details as a list
