@@ -159,11 +159,13 @@
         if ($result) {
         $id = mysqli_insert_id($conn);
         $_SESSION['id'] = $id;
-        echo "<h1>✅ Thank you for your interest, we will look at your application shortly.<br> Your application reference number is: $id</h1>";
-        session_unset();
-        session_destroy();
+        $response = "Thank you for your interest, we will look at your application shortly.<br> Your application reference number is: $id";
+        $_SESSION['response'] = $response;
+        header('Location: apply.php');
         } else {
-        echo "<header><h1>❌ Application unsuccessful. Please <a href='apply.php'>try again</a>.</h1></header>";
+        $response = "Application unsuccessful. Please try again.";
+        $_SESSION['response'] = $response;
+        header('Location: apply.php');
         }
     } 
     else {

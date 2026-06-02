@@ -84,6 +84,18 @@
                 font-size: 0.9em;
                 font-weight: bold;
             }
+
+            #response {
+                align-self: center;
+                width: clamp(260px, 40vw, 600px);
+                font-weight: bold;
+                font-size: 1.5em;
+                padding: 5px;
+                color: rgb(0, 0, 0);
+                text-align: center;
+                background-color: rgb(255, 255, 255);
+                border-radius: 15px; /* Curves the edges of the container */
+            }
         </style>
     </head>
     <body>
@@ -93,10 +105,18 @@
         <header>
             <h1>Application page</h1>
         </header>
-        <?php include 'nav.inc'; ?> <!-- Navagation menu that links to the other pages and darkens when you hover over them -->
-        <?php 
+        <?php include 'nav.inc'; // Navagation menu that links to the other pages and darkens when you hover over them
+
             $errors = $_SESSION['errors'] ?? [];
             $backup = $_SESSION['backup'] ?? []; // An array of all the submitted values when the submit button is pressed
+            $id = $_SESSION['id'] ?? ''; // The application ID returned from process_eoi.php to be used in the success response
+            $response = $_SESSION['response'] ?? ''; // The response text returned from process_eoi.php
+
+            if (!empty($response ?? '')) { // If there's something stored in $response print it out above the application page
+                echo "<div id=\"response\">{$response}</div>";
+                session_unset();
+                session_destroy();
+            }
         ?>
         <div id="Page" style="align-self: center; width: clamp(300px, 60vw, 800px);"> <!-- The clamp function allows you to set a minimum, preferred and maximum size, scaling between these values but never going past them. I wanted the form to take up roughly 60% of the screen so it looks like a physical application form while not ending up squishing to an extreme size when viewed on smaller screens, so I set a minimum limit that it will not get smaller than so as to keep it usable and legible -->
             <form method="POST" action="process_eoi.php"> <!-- Sends all the data from the form to process_eoi.php -->
