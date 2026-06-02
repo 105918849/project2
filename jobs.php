@@ -131,13 +131,13 @@
 
  <?php include 'nav.inc'; ?>
 
-<aside class="look">
+<div class="look">
  <h2>
     <em>Our Company is looking for new team members!</em><br>
     <em>Take your opportunity to apply now!</em>
  </h2>
 
-</aside>
+</div>
  
  <aside class="searchbar">
     <form action="jobs.php" method="GET">
