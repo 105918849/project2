@@ -16,6 +16,7 @@
                 justify-content: space-evenly;
                 align-items: center;
                 align-content: center;
+                text-align: center;
                 border: 6px solid rgb(255, 176, 40);
             }
 
@@ -53,10 +54,10 @@
             }
 
             table {
-                width: 80%;
-                border-radius: 7px;
+                width: 90%;
+                border-radius: 0.3%;
                 border-collapse: collapse;
-                padding: 10px 10px;
+                padding: 1% 1%;
                 overflow: hidden;
             }
 
@@ -64,26 +65,26 @@
 	        th {
                 background-color: rgb(207, 232, 255);
 	            color: rgb(67, 109, 145);
-	            border: 3px solid rgb(110, 159, 202);
-	            padding: 10px 10px;
-	            border-radius: 7px;
+	            border: 3% solid rgb(110, 159, 202);
+	            padding: 1% 1%;
+	            border-radius: 1%;
             }
 
             td {
-                border: 3px solid #D9B8E5;
-                padding: 10px 10px;
+                border: 3% solid #D9B8E5;
+                padding: 1% 1%;
             }
 
             tr {
                 background-color: #E9D6F0;
                 color: #AF66CC;
-                padding: 10px 10px;
+                padding: 1% 1%;
             }
             
             td:hover {
          	background-color: #D9B8E5;
             	color: #9F46C3;
-        	border: 3px solid #C38DD8;
+        	border: 1% solid #C38DD8;
             }
 
 
@@ -138,11 +139,12 @@
     <section>
         <div id="Page">
         <h2>Meet our group (TYD)</h2>
-            <p></p>
+            <p>
             <figure>
                 <img id="groupphoto" src="images/group.png" alt="A group photo showcasing Daniel, Yianni and Tanadol">
                 <figcaption>Meet Daniel, Yianni and Tanadol! Hoang went on vacation and couldn't make it :c</figcaption>
             </figure>
+            </p>
         </div>
     </section>
 
