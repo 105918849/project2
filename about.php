@@ -1,7 +1,7 @@
 <?php
 require_once 'settings.php';
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-$query = "SELECT * FROM project2;";
+$query = "SELECT * FROM contributions;"; // Name of database to access SQL table values
 $result = mysqli_query($conn, $query);
 
 // Fetch all rows at once from result into the  array
