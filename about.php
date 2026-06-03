@@ -1,15 +1,11 @@
-<?php 
-// Include the database connection file
-require_once 'settings.php'; 
+<?php
+require_once 'settings.php';
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+$query = "SELECT * FROM project2;";
+$result = mysqli_query($conn, $query);
 
-// Fetch users from database
-try {
-    $stmt = $pdo->query("SELECT ID, memberName, contNumb, contDesc FROM contributions");
-    $users = $stmt->fetchAll();
-} catch (Exception $e) {
-    echo "Query failed: " . $e->getMessage();
-    exit;
-}
+// Fetch all rows at once from result into the  array
+$users = $result;
 ?>
 <!DOCTYPE html>
 <html lang="en">
