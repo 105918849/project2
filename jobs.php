@@ -123,7 +123,14 @@
  </head>
 
  <body>
-
+ <?php
+ // start the session
+ session_start();
+ //import setting.php
+ require_once("settings.php");
+ $conn = mysqli_connect($host, $user, $pwd, $sql_db); //connect to database
+ $searched = false; // check if searched
+ ?>
  <header id="jobhead">  
     <h1 style="color: rgb(255, 176, 40);">Job opportunities</h1>
  </header>
@@ -148,13 +155,6 @@
 </aside>
 
 <?php
-// start the session
-session_start();
-//import setting.php
-require_once("settings.php");
-$conn = @mysqli_connect($host, $user, $pwd, $sql_db); //connect to database
-$searched = false; // check if searched
-
 // if a searched, use the session to show the job
 if (isset($_SESSION['result'])) {
     $search = mysqli_real_escape_string($conn, $_SESSION['result']);
