@@ -1,12 +1,3 @@
-<?php
-require_once 'settings.php';
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
-$query = "SELECT * FROM contributions;"; // Name of database to access SQL table values
-$result = mysqli_query($conn, $query);
-
-// Fetch all rows at once from result into the  array
-$users = $result;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,6 +106,11 @@ $users = $result;
         </style>
 </head> 
 <body>
+    <?php
+    require_once 'settings.php';
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    $query = "SELECT * FROM contributions;"; // Name of database to access SQL table values
+    ?>
 <div id="Page">
     <header>
         <h1>Who are we?</h1>
@@ -247,35 +243,34 @@ $users = $result;
     </section>
 
     <div style="height: 80px;"></div>
-	
-<section>
-    <div id="Page">
-        <?php if (!empty($users)): ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Record ID</th>
-                    <th>Member Name</th>
-                    <th>Contribution Number</th>
-                    <th>Contribution Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($users as $user): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($user['ID']); ?></td>
-                        <td><?php echo htmlspecialchars($user['memberName']); ?></td>
-                        <td><?php echo htmlspecialchars($user['contNumb']); ?></td>
-                        <td><?php echo htmlspecialchars($user['contDesc']); ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    <?php else: ?>
-        <p>No records found in the system database.</p>
-    <?php endif; ?>
-    </div>
-</section>
+
+<?php
+$result = mysqli_query($conn, $query);
+if($result) {
+    echo "<section>";
+        echo "<div id='Page'>";
+        if(mysqli_num_rows($result) > 0) { //if there are more than 0 rows in the table, execute
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>Member Name</th>";
+            echo "<th>Contribution Number</th>";
+            echo "<th>Contribution Description</th>";
+            echo "</tr>";
+            while ($row = mysqli_fetch_assoc($result)) { //while there is a row, run and then return to check if there's another row to run for
+                echo "<tr>";
+                echo "<td>" . $row['memberName'] . "</td>";
+                echo "<td>" . $row['contNumb'] . "</td>";
+                echo "<td>" . $row['contDesc'] . "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<p>No records found.</p>";
+        }
+        echo "</div>"; 
+    echo "</section>";
+} 
+?>
     <?php include 'footer.inc'; ?>
 </body>
 </html>
