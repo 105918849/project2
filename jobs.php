@@ -147,13 +147,22 @@
     </form>
 </aside>
 
-<?php 
-// if not searched render all jobs
-if (!isset($result)) { 
-    // import setting.php
-    require_once("settings.php");
-    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-    $result = mysqli_query($conn, "SELECT * FROM jobs"); 
+<?php
+// start the session
+session_start();
+//import setting.php
+require_once("settings.php");
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db); //connect to database
+$searched = false; // check if searched
+
+// if a searched, use the session to show the job
+if (isset($_SESSION['result'])) {
+    $search = mysqli_real_escape_string($conn, $_SESSION['result']);
+    $result = mysqli_query($conn, "SELECT * FROM jobs WHERE title LIKE '%$search%' OR job_ref LIKE '%$search%'");
+    $searched = true;
+    unset($_SESSION['result']); // clear the session
+} else {
+    $result = mysqli_query($conn, "SELECT * FROM jobs"); // show all the jobs
 }
 ?>
 
@@ -197,7 +206,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo '<a href="apply.php?job_ref=' . $row['job_ref'] . '" class="buttons">Click here to apply</a>';
     echo '</section>';
 }
- } else if (isset($_POST['search'])) { 
+ } else if ($searched) { 
      echo '<h3 style="text-align:center; width:100%; background-color: aliceblue; border: 5px solid black;">No jobs found matching your search.</h3>'; // Show a message if they searched for a job that doesn't exist or something that doesn't match
  }
     // Close the database connection
