@@ -140,15 +140,22 @@
 </div>
  
  <aside class="searchbar">
-    <form action="jobs.php" method="GET">
+    <form action="search.php" method="POST">
         <label for="search"><strong>Search Jobs: </strong></label>
         <input type="text" name="search" id="search" placeholder="Search for jobs">
         <button type="submit">Search</button>
     </form>
 </aside>
 
-<!-- include search.php into jobs.php -->
- <?php include 'search.php'; ?> 
+<?php 
+// if not searched render all jobs
+if (!isset($result)) { 
+    // import setting.php
+    require_once("settings.php");
+    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+    $result = mysqli_query($conn, "SELECT * FROM jobs"); 
+}
+?>
 
 <section id="jobrender">
  <?php 
@@ -190,7 +197,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo '<a href="apply.php?job_ref=' . $row['job_ref'] . '" class="buttons">Click here to apply</a>';
     echo '</section>';
 }
- } else if (isset($_GET['search'])) { 
+ } else if (isset($_POST['search'])) { 
      echo '<h3 style="text-align:center; width:100%; background-color: aliceblue; border: 5px solid black;">No jobs found matching your search.</h3>'; // Show a message if they searched for a job that doesn't exist or something that doesn't match
  }
     // Close the database connection
