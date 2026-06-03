@@ -28,17 +28,20 @@
                 margin: 1em;
             }
 
-            label {
-                font-weight: bold;
-                color: white;
-            }
-
             select {
                 font-size: clamp(0.4em, 1vw, 0.8em);
             }
 
             div {
                 align-self: center;
+            }
+
+            .info {
+                font-weight: bold;
+                color: rgb(0, 0, 0);
+                text-align: center;
+                background-color: rgb(255, 255, 255);
+                border-radius: 15px; /* Curves the edges of the container */
             }
         </style>
 </head>
@@ -86,12 +89,12 @@
             <button type="submit">Sort</button>
         </form>
         <form method="POST" action="manage_query.php">
-            <label for="delete">Delete EOI by JRN</label>
+            <label class="info" for="delete">Delete EOI by JRN</label>
             <input type="text" name="delete" placeholder="JRN" style="width: 60px;">
             <button type="submit">Delete</button>
         </form>
         <form method="POST" action="manage_query.php">
-            <label for="change">Change status by EOInumber</label>
+            <label class="info" for="change">Change status by EOInumber</label>
             <input type="text" name="change" placeholder="EOI#" style="width: 40px;">
             <select name="Status" id="Status">
                 <option value="">Change status?</option>			
