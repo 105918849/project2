@@ -110,11 +110,9 @@
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     $query = "SELECT * FROM contributions;"; // Name of database to access SQL table values
     ?>
-<div id="Page">
-    <header>
+    <header style="border: 6px solid rgb(255, 176, 40);">
         <h1>Who are we?</h1>
     </header>
-</div>
     <?php include 'nav.inc'; ?>
     <section>
         <div id="Details" style="flex-flow: column;">
