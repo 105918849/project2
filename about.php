@@ -257,13 +257,13 @@ if($result) {
             echo "<table>";
             echo "<tr>";
             echo "<th>Member Name</th>";
-            echo "<th>Contribution Number</th>";
-            echo "<th>Contribution Description</th>";
+            echo "<th>Assessment Part</th>";
+            echo "<th>Contribution</th>";
             echo "</tr>";
             while ($row = mysqli_fetch_assoc($result)) { //while there is a row, run and then return to check if there's another row to run for
                 echo "<tr>";
                 echo "<td>" . $row['memberName'] . "</td>";
-                echo "<td>" . $row['contNumb'] . "</td>";
+                echo "<td>" . $row['assNumb'] . "</td>";
                 echo "<td>" . $row['contDesc'] . "</td>";
                 echo "</tr>";
             }
