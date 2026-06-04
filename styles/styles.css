@@ -46,11 +46,13 @@ nav a {
     margin-right: clamp(0px, 1vw, 20px);
     color: rgb(110, 159, 202);
     font-weight: bold;
+    transition: 0.12s ease-in all;
 }
 
 nav a:hover{ /* Darkens the element when hovered over */
     background-color: rgb(158, 176, 194);
 	color: rgb(67, 109, 145);
+    transform:translateY(-0.1em);
 }
 
 #Page {

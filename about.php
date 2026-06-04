@@ -45,11 +45,9 @@
             
             nav a {
                 border: 4px solid rgb(110, 159, 202);
-                transition: 0.12s ease-in all;
             }
 
             nav a:hover {
-                transform:translateY(-0.1em);
                 border: 4px solid rgb(67, 109, 145);
             }
 
