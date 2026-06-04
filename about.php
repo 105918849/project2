@@ -51,6 +51,10 @@
                 border: 4px solid rgb(67, 109, 145);
             }
 
+            table, th, td {
+                font-size: clamp(0.9em, 2vw, 1em);
+            }
+
             table {
                 width: 90%;
                 border-radius: 0.3%;
@@ -138,7 +142,7 @@
             <p>
             <figure>
                 <img id="groupphoto" src="images/group.png" alt="A group photo showcasing Daniel, Yianni and Tanadol">
-                <figcaption>Meet Daniel, Yianni and Tanadol! Hoang went on vacation and couldn't make it :c</figcaption>
+                <figcaption>Meet Daniel, Yianni and Tanadol!</figcaption>
             </figure>
             </p>
         </div>
@@ -160,10 +164,6 @@
 <div style="height: 30px;"></div>
                     <dt>Tanadol Baibong: Backend developer and Interviewer</dt>
                     <dd>"มีแต่ทำ กับไม่ทำ ไม่มีคำว่าลอง" -> (Do, or do not. There is no “try”)</dd>
-<div style="height: 30px;"></div>
-                    <dt>Hoang Khang Vo: Applications manager</dt>
-                    <!--credit https://www.deepl.com/en/translator-->
-                    <dd>"Hej, världen!" -> (Hello world!)</dd>
                 </dl>
         </div>
     </section>
@@ -209,11 +209,6 @@
                 <li>Tanadol:
                     <ul>
                         <li>My dream job is to become a Cybersecurity Engineer. My Hometown is Bangkok. Thailand. I love staying up late</li>
-                    </ul>
-                </li>
-                <li>Hoang:
-                    <ul>
-                        <li>N/A</li>
                     </ul>
                 </li>
         </div>
