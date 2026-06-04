@@ -39,7 +39,7 @@
             }
 
             img {
-                max-width: 70%;
+                max-width: clamp(200px, 60vw, 70vw);
                 height: auto;
             }
             
@@ -87,7 +87,7 @@
 
 
             #painting {
-                width: 400px;
+                width: clamp(160px, 40vw, 400px);
                 height: auto;
             }
 
