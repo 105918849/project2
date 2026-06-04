@@ -155,7 +155,7 @@
         <h2>More about us</h2>
             <h3>Positions and personal quotes:</h3>
                 <dl>
-                    <dt>Daniel Colgroove: Backened developer and Product director</dt>
+                    <dt>Daniel Colegrove: Backened developer and Product director</dt>
                     <dd>"Finché c'è vita c'è speranza" -> (While there's life, there's hope)</dd>
 <div style="height: 30px;"></div>
                     <dt>Cammie/Yianni Charalambous: Frontend developer and Customer support agent</dt>
