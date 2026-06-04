@@ -179,8 +179,14 @@
             <ul>
                 <li>Contact Hours:
                     <ul>
-                        <li>Monday: <time>12:30</time> to <time>13:30</time></li>
-                        <li>Friday: <time>10:30</time> to <time>12:30</time></li>
+                        <li>Monday:</li>
+                            <ul>
+                                <li><time>12:30</time> to <time>13:30</time></li>
+                            </ul>
+                        <li>Friday:</li>
+                            <ul>
+                                <li><time>10:30</time> to <time>12:30</time></li>
+                            </ul>
                     </ul>
                 </li>
             </ul>
